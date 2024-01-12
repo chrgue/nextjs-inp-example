@@ -3,7 +3,7 @@
 import ReactLogo from "@/components/ReactLogo";
 import {PokemonList} from "@/components/PokemonList";
 import {Search} from "@/components/Search";
-import {useState, useTransition} from "react";
+import {Suspense, useState, useTransition} from "react";
 
 export default function Home() {
     const initialState = "";
@@ -22,7 +22,9 @@ export default function Home() {
         <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
             <ReactLogo src="/logo.svg" alt="React logo"/>
             <Search text={inputText} onChange={(text) => onChange(text)}/>
-            <PokemonList text={filterText}/>
+            <Suspense>
+                <PokemonList text={filterText}/>
+            </Suspense>
         </div>
     );
 }
