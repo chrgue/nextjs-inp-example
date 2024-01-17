@@ -9,8 +9,8 @@ const ReactLogo = ({src, alt}: ReactLogoProps) => {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setRotation(rotation => (rotation + 1) % 360);
-        }, 1);
+            setRotation(rotation => (rotation + 10) % 360);
+        }, 20);
 
         return () => clearInterval(intervalId);
     }, []);
